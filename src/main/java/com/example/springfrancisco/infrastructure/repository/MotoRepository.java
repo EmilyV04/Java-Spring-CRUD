@@ -9,7 +9,7 @@ import org.springframework.stereotype.Repository;
 
 @Repository
 public interface MotoRepository extends JpaRepository<MotoDto, String> {
-  @Query(nativeQuery = true, value = "update postgres.moto_dto set marca = :marca, modelo = :modelo, precio = :precio, cilindraje = :cilindraje, es_electrica =: esElectrica where placa = :placa")
+  @Query(nativeQuery = true, value = "update moto_dto set marca = :marca, modelo = :modelo, precio = :precio, cilindraje = :cilindraje, es_electrica = :esElectrica where placa = :placa")
   @Modifying
   void updateMoto(@Param("marca") String marca,
                   @Param("placa") String placa,
