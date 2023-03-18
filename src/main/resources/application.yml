@@ -18,3 +18,8 @@ spring:
     hibernate:
       format-sql: true
       ddl-auto: none
+  rabbitmq:
+    host: localhost
+    port: 5672
+    username: guest
+    password: guest
