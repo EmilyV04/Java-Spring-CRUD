@@ -15,6 +15,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestHeader;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
@@ -35,8 +36,8 @@ public class CarController {
     return ResponseEntity.ok(carGet.getListCarro());
   }
   @PostMapping(value = "/create")
-  public ResponseEntity<Carro> addCar(@RequestBody Carro car){
-    return new ResponseEntity<>(carSave.saveCar(car), HttpStatus.CREATED);
+  public ResponseEntity<Carro> addCar(@RequestBody Carro car, @RequestHeader("id") String id){
+    return new ResponseEntity<>(carSave.saveCar(car, id), HttpStatus.CREATED);
   }
   @PutMapping(value = "/edit")
   public void editCar(@RequestBody Carro car){
